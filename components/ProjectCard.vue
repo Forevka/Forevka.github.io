@@ -12,10 +12,10 @@
 			{{ description }}
 		</p>
 		<section class="project__links">
-			<a v-if="codeLink !== undefined" :href="codeLink" target="_blank" class="project__link text__link"
+			<a v-if="codeLink !== undefined && codeLink" :href="codeLink" target="_blank" class="project__link text__link"
 				>Code</a
 			>
-			<a v-if="codeDemo !== undefined" :href="codeDemo" target="_blank" class="project__link text__link"
+			<a v-if="codeDemo !== undefined && codeDemo" :href="codeDemo" target="_blank" class="project__link text__link"
 				>Demo</a
 			>
 		</section>
@@ -64,6 +64,7 @@ export default {
 
 	.project__skills {
 		max-width: 50%;
+		display: inline-flex;
 
 		.skill__image {
 			height: auto;
