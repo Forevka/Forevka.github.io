@@ -52,11 +52,15 @@ export default {
 	 */
 	modules: ["@nuxtjs/style-resources", "nuxt-svg-loader"],
 	styleResources: {
-		scss: ["assets/scss/base.scss", "assets/scss/_mixins.scss"],
+		scss: ["assets/scss/_mixins.scss", "assets/scss/base.scss"],
 	},
 	/*
 	 ** Build configuration
 	 ** See https://nuxtjs.org/api/configuration-build/
 	 */
-	build: {},
+	build: {
+		loaders: {
+			file: { esModule: false }
+		}
+	},
 };

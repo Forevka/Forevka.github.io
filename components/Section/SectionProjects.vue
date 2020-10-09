@@ -2,26 +2,48 @@
 	<section class="section__container">
 		<h2 class="section__title">Projects</h2>
 		<article class="projects__container">
-			<project-card 
-				:name="'test'" 
-				:description="'lorem'" 
-				:codeLink="'qwe'" 
-				:codeDemo="'qwww'">
-					<SVGPython class="skill__image" />
+			<project-card v-for="p in projects" :key="p.name"
+				:name="p.name" 
+				:description="p.description" 
+				:codeLink="p.codeLink" 
+				:codeDemo="p.codeDemo">
+					<Icon v-for="(s, i)  in p.skills" size="small" :name="s" :key="i"/>
 			</project-card>
-			<project-card :name="'test'" :description="'lorem'" :codeLink="'qwe'" />
 		</article>
 	</section>
 </template>
 
 <script>
-import SVGPython from "@/assets/images/svg/python.svg";
+import Icon from '../Icon.vue';
 import ProjectCard from "~/components/ProjectCard.vue";
 
 export default {
+	data: () => {
+		return {
+			projects: [
+				{
+					name: 'test', 
+					description: 'qweqwe', 
+					codeLink: 'qqq', 
+					codeDemo: 'qqqq',
+					skills: [
+						'python'
+					]
+				},{
+					name: 'test2', 
+					description: 'qweqwe2', 
+					codeLink: 'qqq2', 
+					codeDemo: 'qqqq2',
+					skills: [
+						'rust'
+					]
+				}
+			]
+		}
+	},
 	components: {
 		ProjectCard,
-		SVGPython,
+		Icon,
 	},
 };
 </script>
@@ -32,5 +54,4 @@ export default {
 	margin-top: 1rem;
 	padding: 0.25rem 0.5rem;
 }
-
 </style>
