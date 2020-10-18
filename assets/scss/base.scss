@@ -1,0 +1,33 @@
+@import "./variables";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	font-family: $font;
+	font-size: 17px;
+}
+
+body {
+	margin: 0;
+}
+
+.default__main {
+	color: #282828;
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+	//user-select: none;
+}
+
+// Section general
+.section__container {
+	min-height: 10vh;
+	margin-top: 4rem;
+
+	.section__title {
+		color: $color;
+		margin-bottom: 0;
+		font-size: 1.5em;
+	}
+}
