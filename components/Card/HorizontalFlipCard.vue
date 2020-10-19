@@ -121,8 +121,16 @@ $monospace: Consolas, "Lucida Console",  monospace;
 	.nostyle {
 		color: inherit; /* blue colors for links too */
         text-decoration: inherit; /* no underline */
+    }
+    
+    @media (max-width: 500px) { 
+        &-front {
+            code {
+                left: 15px;
+            }
+        }
 	}
-	
+
 	&-front,
 	&-back {
 		position: absolute;
