@@ -37,6 +37,7 @@ export default {
 <style lang="scss" scoped>
 .project__section {
 	@include border(0 16px, $color-soft, 2px);
+	height: 13rem;
 	padding: 0.85rem 1rem;
 	display: inline-grid;
 	grid-template-rows: auto 1fr auto;

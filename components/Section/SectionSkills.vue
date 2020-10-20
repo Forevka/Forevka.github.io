@@ -33,6 +33,8 @@ import Icon from '../Icon.vue';
 export default {
 	components: {
 		Icon,
+		[Glide.name]: Glide,
+      	[GlideSlide.name]: GlideSlide,
 	},
 	data: () => {
 		return {
