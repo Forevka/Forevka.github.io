@@ -18,8 +18,12 @@
 				</project-card>
 			</vue-glide-slide>
 			<template slot="control">
-				<button data-glide-dir="<" class="prev"><</button>
-				<button data-glide-dir=">" class="next">></button>
+				<button data-glide-dir="<" class="prev">
+					<icon class="arrow-prev" name="arrow" size="info"/>
+				</button>
+				<button data-glide-dir=">" class="next">
+					<icon class="arrow-next" name="arrow" size="info"/>
+				</button>
 			</template>
 		</vue-glide>
 		<!--<article class="projects__container">
@@ -41,6 +45,7 @@ import ProjectCard from "~/components/ProjectCard.vue";
 
 export default {
 	components: {
+		Icon,
 		[Glide.name]: Glide,
 		[GlideSlide.name]: GlideSlide,
 	},
@@ -164,6 +169,17 @@ export default {
 	text-align: center;
 }
 
+.arrow {
+	&-prev,
+	&-next {
+		fill: #fff;
+	}
+
+	&-prev {
+		transform: rotate(180deg);
+	}
+}
+
 .glide {
 	&__slide {
 		display: flex;
@@ -188,7 +204,6 @@ export default {
 		color: #fff;
 		text-transform: uppercase;
 		font: 11px Arial, sans-serif;
-		padding: 9px 12px;
 		background-color: transparent;
 		border: 2px solid rgba(255, 255, 255, 0.5);
 		border-radius: 4px;

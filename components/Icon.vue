@@ -31,6 +31,7 @@ import SVGmssql from "@/assets/images/svg/mssql.svg";
 import SVGpostgres from "@/assets/images/svg/postgres.svg";
 import SVGrust from "@/assets/images/svg/rust.svg";
 import SVGtypescript from "@/assets/images/svg/typescript.svg";
+import SVGArrowR from "@/assets/images/svg/arrowr.svg";
 
 export default {
     props: {
@@ -38,6 +39,7 @@ export default {
         name: String,
     },
     components: {
+        SVGArrowR,
 		SVGlua,
 		SVGtypescript,
 		SVGrust,
@@ -70,6 +72,7 @@ export default {
     data: () => {
         return {
             svg: {
+                'arrow': SVGArrowR,
                 'rust': SVGrust, 
                 'python': SVGPython, 
                 'csharp': SVGcsharp, 
@@ -115,6 +118,10 @@ export default {
 
 	&.small {
 		width: 25px;
+    }
+    
+    &.info {
+		width: 15px;
 	}
 }
 </style>
