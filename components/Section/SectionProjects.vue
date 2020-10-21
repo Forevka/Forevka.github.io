@@ -166,7 +166,7 @@ export default {
 }
 
 .section__title {
-	text-align: center;
+	text-align: left;
 }
 
 .arrow {

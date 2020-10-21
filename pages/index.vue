@@ -3,12 +3,19 @@
 		<SectionIntro />
 		<SectionSkills />
 		<SectionProjects />
+		<SectionTimelime />
 		<SectionContact />
 	</article>
 </template>
 
 <script>
-export default {};
+import SectionTimelime from '../components/Section/SectionTimeline.vue'
+
+export default {
+	components: {
+		SectionTimelime,
+	}
+};
 </script>
 
 <style lang="scss">
