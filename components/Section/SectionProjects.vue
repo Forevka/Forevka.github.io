@@ -4,7 +4,6 @@
 		<vue-glide
 			type="carousel"
 			:perView="5"
-			focusAt="center"
 			:autoplay="5000"
 			:breakpoints="responsive_glide"
 		>
@@ -19,8 +18,8 @@
 				</project-card>
 			</vue-glide-slide>
 			<template slot="control">
-				<button data-glide-dir="<" class="prev">prev</button>
-				<button data-glide-dir=">" class="next">next</button>
+				<button data-glide-dir="<" class="prev"><</button>
+				<button data-glide-dir=">" class="next">></button>
 			</template>
 		</vue-glide>
 		<!--<article class="projects__container">
@@ -175,14 +174,15 @@ export default {
 		font-weight: 600;
 		border-radius: 5px;
 		transition: all 0.3s;
-		opacity: 0.3;
+		/*opacity: 0.3;
 		&--active {
 			opacity: 1;
-		}
+		}*/
 	}
 
 	button {
 		cursor: pointer;
+		height: 100%;
 		position: absolute;
 		z-index: 2;
 		color: #fff;
@@ -195,16 +195,16 @@ export default {
 		transition: border 0.3s ease-in-out;
 
 		position: absolute;
-		top: 40%;
+		top: 0%;
 
 		&:hover {
 			border-color: #fff;
 		}
 		&.prev {
-			left: 5px;
+			left: -38px;
 		}
 		&.next { 
-			right: 5px; 
+			right: -38px; 
 		}
 	}
 
