@@ -19,7 +19,7 @@
 			</section>-->
 			<img
 				class="intro__image"
-				src="https://instagram.fiev25-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/39318277_1768083899977061_3214925407811796992_n.jpg?_nc_ht=instagram.fiev25-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=Qs8Z1P9utTQAX82RXJK&_nc_tp=24&oh=ab130610f35d5d6ce9889040c9b16021&oe=5FB71514"
+				src="https://i.ibb.co/XJpdwRY/39318277-1768083899977061-3214925407811796992-n.jpg"
 				alt="Picture of me"
 			/>
 		</section>
