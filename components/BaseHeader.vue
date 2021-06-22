@@ -7,7 +7,8 @@
 				:target="true"
 				class="nav__item"
 			/>
-			<TextLink link="#" content="Resume" class="nav__item" />
+			<TextLink link="/articles" content="Blog" class="nav__item"/>
+			<TextLink link="/" content="Resume" class="nav__item" />
 		</nav>
 	</header>
 </template>

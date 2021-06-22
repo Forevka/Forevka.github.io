@@ -1,8 +1,5 @@
 <template>
 	<section class="intro">
-		<section class="intro__card">
-			<horizontal-flip-card/>
-		</section>
 
 		<section class="intro__image">
 			<!--<h1 class="intro__title">Hey ~ I'm _____ 🤙</h1>
