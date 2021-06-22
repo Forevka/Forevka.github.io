@@ -49,7 +49,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 /* 2. Make nav sticky */
 nav {
   position: sticky;
@@ -67,6 +67,7 @@ nav {
 .section-nav {
   padding-left: 0;
   border-left: 1px solid #efefef;
+  margin-top: 2rem;
 }
 
 .section-nav a {

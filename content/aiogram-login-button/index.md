@@ -6,6 +6,7 @@ tags:
   - aiogram
   - login
   - aiohttp
+image: fastapi-aiogram.png
 ---
 
 ## Пример Login button
