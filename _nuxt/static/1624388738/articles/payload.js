@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/articles", (function(a){return {data:[{posts:[{description:"Туториал по добавлению кнопки для логина",title:"Логин кнопка для бота телеграм",date:"2022-09-06T00:00:00.000Z",path:"\u002Faiogram-login-button\u002Findex"},{title:"Hello World!",date:"2022-08-06T00:00:00.000Z",path:"\u002Fhello-world\u002Findex"}],searchQuery:a}],fetch:[],mutations:a}}(void 0)));
