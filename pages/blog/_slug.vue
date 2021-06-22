@@ -1,26 +1,26 @@
 <template>
   <div class="blog-wrapper">
     <article>
+      
       <div class="uk-container">
         <div class="uk-section">
           <header>
-            <h1 class="c-heading c-heading--prim">{{ article.title }}</h1>
+            <div class="hero-nav">
+              <img :src="require('~/content/' +
+                        article.path.split('/')[1] +
+                        '/images/' +
+                        article.image)"/>
+              <div class="hero-nav__inner">
+                  <div class="hero-nav__button">
+                  </div>
+              </div>
+            </div>
+            <h1 class="c-heading c-heading--prim"></h1>
             <div class="prescription">
               <b>Time to read: {{ article.readingTime }}</b>
               <b>Published on: {{ formatDate(article.createdAt) }}</b>
             </div>
           </header>
-          <img
-            v-if="article.image"
-            :src="
-              require('~/content/' +
-                article.path.split('/')[1] +
-                '/images/' +
-                article.image)
-            "
-            :alt="article.title"
-            id="header-image"
-          />
           <nuxt-content :document="article" />
         </div>
       </div>
@@ -121,10 +121,39 @@ export default {
 };
 </script>
 
+<style lang="scss" scoped>
+.hero-nav{
+    img {
+      width: auto;
+      height: 100%;
+    }
+
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    min-height: 105px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    .hero-nav__inner{
+      z-index: 1;
+      h1 {
+        text-align: justify;
+        font-size: xxx-large;
+      }
+    }
+    h1{
+        color: #efefef;
+        font-size: 5vw;
+    }
+}
+</style>
 
 <style lang="scss" scoped>
 $dev_md_min: 35.625rem;
-@import url("https://fonts.googleapis.com/css?family=Noticia+Text|Lalezar");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/montserrat@4.4.5/index.min.css");
 
 article {
 	--color_ink: #282724; // Black
@@ -132,8 +161,8 @@ article {
   --bg-color: #f5f8eb;
   --text-color: #0a643a;
   --accent-color: #a0bb2e;
-  --font-family: "Noticia Text";
-  --font-display: "Lalezar";
+  --font-family: "Montserrat";
+  --font-display: "Montserrat";
   --border: 2px;
 	--color_headline: #aa8740; // Gold
 }
@@ -243,11 +272,19 @@ pre > code > * {
 }
 
 .nuxt-content {
+  section > * {
+    font-family: var(--font-display);
+  }
+
   h2 {
     font-size: 180%;
     transform: translateX(-5px);
     font-family: var(--font-display);
     margin-bottom: 0;
+  }
+
+  h1 {
+    font-weight: 600;
   }
 
   a {
@@ -267,7 +304,7 @@ pre > code > * {
   }
 
   strong:before {
-    content: "🎙️";
+    content: "❗️❗️";
     margin-right: 5px;
     margin-top: 34px;
     display: inline-block;
