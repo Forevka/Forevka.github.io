@@ -27,7 +27,8 @@ export default {
       entries.forEach((entry) => {
 
         const id = entry.target.children.item(0).getAttribute("id");
-        const fullHref = `${window.location.pathname}#${id}`
+        const fullHref = `${window.location.pathname}#${encodeURIComponent(id)}`
+        console.log(fullHref)
 
         if (entry.intersectionRatio > 0) {
           document
