@@ -115,7 +115,6 @@ export default {
     },
     getToc() {
       document.querySelectorAll('section > h2[id],h1[id]').forEach((elem) => this.toc.push({text: elem.outerText, id: elem.id, depth: elem.localName === 'h2' ? 2 : 1}))
-      console.log(this.toc)
     }
   },
   mounted() {
