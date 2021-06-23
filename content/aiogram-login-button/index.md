@@ -1,6 +1,6 @@
 ---
 title: Логин кнопка для бота телеграм
-description: Подключаем логин кнопку от телеграм бота к вашему сайту
+description: Дружим aiogram логин с fastapi 
 date: 2021-21-06
 tags:
   - aiogram
@@ -11,7 +11,7 @@ image: fastapi-aiogram.png
 
 ## Пример Login button
 
-[Login button](https://core.telegram.org/bots/api#loginurl)
+[Ссылка на документацию телеграм](https://core.telegram.org/bots/api#loginurl)
 
 Приложение разбито на две составляющие [bot](https://github.com/Forevka/Aiogram.Login.Example/blob/main/bot.py) и [web](https://github.com/Forevka/Aiogram.Login.Example/blob/main/web.py)
 
