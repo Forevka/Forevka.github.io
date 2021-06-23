@@ -6,10 +6,14 @@
         <div class="uk-section">
           <header>
             <div class="hero-nav">
-              <img :src="require('~/content/' +
+              <img :src="
+                      article.image.startsWith('http') ?
+                      article.image :
+                      require('~/content/' +
                         article.path.split('/')[1] +
                         '/images/' +
-                        article.image)"/>
+                        article.image)
+                    "/>
               <div class="hero-nav__inner">
                   <div class="hero-nav__button">
                   </div>
@@ -255,17 +259,21 @@ h2:after {
 
 </style>
 
-<style lang="scss">
-@import url("https://cdn.jsdelivr.net/npm/source-code-pro@2.38.0/source-code-pro.css");
+<style lang="scss" scoped>
 
 img {
-  
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 95%;
   border-radius: 10px;
 }
+
+</style>
+
+<style lang="scss">
+@import url("https://cdn.jsdelivr.net/npm/source-code-pro@2.38.0/source-code-pro.css");
+
 
 pre > code > * {
   font-family: "Source Code Pro";
@@ -318,6 +326,14 @@ pre > code > * {
     max-width: 55px;
     transform: skewX(-21deg) translateY(-13px);
     border-radius: 3px;
+  }
+  
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    border-radius: 10px;
   }
 }
 

@@ -1,64 +1,44 @@
 <template>
-  <section id="articles" class="uk-container uk-section">
-    <h1 v-if="!searchQuery">Articles</h1>
-    <h1 v-if="searchQuery">Search results for: {{ searchQuery }}</h1>
-    <div class="uk-margin">
-      <form class="uk-search uk-search-default">
-        <span class="uk-search-icon-flip" uk-search-icon></span>
-        <nuxt-link class="nav-link" :to="execSearch()"
-          ><button
-            class="uk-search-icon-flip"
-            uk-search-icon
-            aria-label="Search"
-          ></button
-        ></nuxt-link>
-        <input
-          class="uk-search-input"
-          type="search"
-          placeholder="Search Articles"
-          v-model="search"
-          aria-label="Search Input"
-        />
-      </form>
-    </div>
-    <div class="uk-child-width-expand@s uk-text-center uk-grid" uk-grid>
-      <section v-for="post in posts" :key="post.title" class="uk-width-1-3@m">
-        <nuxt-link class="nav-link" :to="'/blog/' + post.path.split('/')[1]">
-          <div class="uk-card uk-card-default uk-card-hover">
-            <div>
-              <div class="uk-card uk-card-default">
-                <div class="uk-card-media-top">
-                  <img
+  <section id="articles" class="container items-center px-5 py-8 mx-auto lg:px-24border rounded-md border-blueGray-200">
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap -m-4">
+          <div v-for="post in posts" :key="post.title" class="p-4 md:w-1/3">
+            <div class="img-hover-zoom bg-white h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+              <nuxt-link class="nav-link" :to="'/blog/' + post.path.split('/')[1]">
+                <div style="overflow: hidden;">
+                  <img class="lg:h-48 md:h-36 w-full object-cover object-center" 
                     v-if="post.image"
                     :src="
+                      post.image.startsWith('http') ?
+                      post.image :
                       require('~/content/' +
                         post.path.split('/')[1] +
                         '/images/' +
                         post.image)
                     "
-                    :alt="post.title"
-                    style="width: 100%; height: 250px"
-                  />
+                    :alt="post.title">
                 </div>
-                <div class="uk-card-body">
-                  <h3 class="uk-card-title" style="margin-top: 0px">
-                    {{ post.title }}
-                  </h3>
+              </nuxt-link>
+              <div class="p-6">
+                <h2 class="tracking-widest text-x title-font font-medium text-gray-400 mb-1">{{ post.title }}</h2>
+                <span v-for="tag in post.tags" :key="tag" class="inline-block rounded-full text-gray-600 bg-gray-100 px-2 py-1 text-xs font-bold mr-3">{{ tag }}</span>
+                <p class="leading-relaxed mb-3">{{ post.description }}</p>
+                <div class="flex items-center flex-wrap ">
+                  <nuxt-link :to="'/blog/' + post.path.split('/')[1]" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Read
+                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                  </nuxt-link>
                 </div>
               </div>
             </div>
           </div>
-        </nuxt-link>
-      </section>
-    </div>
-    <button
-      class="uk-button uk-button-default"
-      @click="getMorePosts"
-      style="margin-top: 30px"
-      v-if="!searchQuery"
-    >
-      See more articles
-    </button>
+          
+        </div>
+      </div>
+    </section>
   </section>
 </template>
 
@@ -75,7 +55,7 @@ export default {
   methods: {
     async getMorePosts() {
       const blogPosts = await this.$content({ deep: true })
-        .only(['title', 'description', 'image', 'path', 'date'])
+        .only(['title', 'description', 'image', 'path', 'date', 'tags'])
         .sortBy('date', 'desc')
         .skip(9 * this.page)
         .limit(9)
@@ -95,13 +75,13 @@ export default {
     let posts
     if (!searchQuery) {
       posts = await $content({ deep: true })
-        .only(['title', 'description', 'image', 'path', 'date'])
+        .only(['title', 'description', 'image', 'path', 'date', 'tags'])
         .sortBy('date', 'desc')
         .limit(9)
         .fetch()
     } else {
       posts = await $content({ deep: true })
-        .only(['title', 'description', 'image', 'path', 'date'])
+        .only(['title', 'description', 'image', 'path', 'date', 'tags'])
         .sortBy('date', 'desc')
         .search('title', searchQuery)
         .fetch()
@@ -129,5 +109,24 @@ section#articles {
   min-height: 85vh;
   margin-left: 10rem;
   margin-right: 10rem;
+  background: #f5f8eb;
+}
+</style>
+
+<style lang="scss" scoped>
+
+.text-xs {
+  font-size: .75rem !important;
+}
+
+.img-hover-zoom img {
+  transition: transform .5s ease;
+  z-index: -1;
+}
+
+
+.img-hover-zoom:hover img {
+  transform: scale(1.5);
+  z-index: -1;
 }
 </style>
