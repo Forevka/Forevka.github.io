@@ -72,12 +72,10 @@
 
 <script>
 import Prism from "~/plugins/prism";
-import TableOfContent from "~/components/TableOfContent.vue";
 import BlogNavigation from "~/components/BlogNavigation.vue";
 
 export default {
   components: {
-    TableOfContent,
     BlogNavigation,
   },
   data() {
@@ -293,9 +291,18 @@ pre > code > * {
   h1 {
     font-weight: 600;
   }
-
   a {
-    color: var(--text-color);
+    padding-bottom: 1px;
+    text-decoration: none;
+    color: #000;
+    box-shadow: inset 0 -4px 0 rgba(13,190,152,0.7);
+    transition: background-color .25s ease-out;
+  }
+
+  a:hover {
+    background-color: rgba(13,190,152,0.7);
+    padding-top: 2px;
+    box-shadow: none;
   }
 
   p {

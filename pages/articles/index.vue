@@ -24,7 +24,7 @@
                 <h2 class="tracking-widest text-x title-font font-medium text-gray-400 mb-1">{{ post.title }}</h2>
                 <span v-for="tag in post.tags" :key="tag" class="inline-block rounded-full text-gray-600 bg-gray-100 px-2 py-1 text-xs font-bold mr-3">{{ tag }}</span>
                 <p class="leading-relaxed mb-3">{{ post.description }}</p>
-                <div class="flex items-center flex-wrap ">
+                <div class="flex items-center flex-wrap" style="flex-direction: row-reverse;">
                   <nuxt-link :to="'/blog/' + post.path.split('/')[1]" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Read
                     <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M5 12h14"></path>

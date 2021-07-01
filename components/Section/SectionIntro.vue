@@ -24,13 +24,11 @@
 </template>
 
 <script>
-import HorizontalFlipCard from '../Card/HorizontalFlipCard.vue';
 import TextLink from "~/components/TextLink.vue";
 
 export default {
 	components: {
 		TextLink,
-		HorizontalFlipCard,
 	},
 };
 </script>
