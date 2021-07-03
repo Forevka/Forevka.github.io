@@ -53,7 +53,8 @@ export default {
 	 ** Nuxt.js dev-modules
 	 */
 	buildModules: [
-		'@nuxtjs/tailwindcss'
+		'@nuxtjs/tailwindcss',
+		'@nuxtjs/google-analytics'
 		// Doc: https://github.com/nuxt-community/eslint-module
 		//"@nuxtjs/eslint-module",
 	],
@@ -112,4 +113,7 @@ export default {
 			console.log(files)
 		}
 	},
+	googleAnalytics: {
+		id: 'G-XHDJF4PW2N'
+	}
 };
